@@ -92,4 +92,4 @@ Contributions to ChickSight are welcome! Whether it's bug fixes, feature enhance
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
-I would like to express my gratitude to Krish Naik. YouTube video referred: https://youtu.be/p1bfK8ZJgkE?si=mNKMlHyyqRe7nmdx
+I would like to express my gratitude to Krish Naik. YouTube video referred: [YouTube](https://youtu.be/p1bfK8ZJgkE?si=mNKMlHyyqRe7nmdx)
