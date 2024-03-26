@@ -1,6 +1,7 @@
 from ChickenDiseaseClassification.constants import *
 from ChickenDiseaseClassification.utils.common import read_yaml, create_directories
 from ChickenDiseaseClassification.entity.config_entity import *
+import os
 
 class ConfigurationManager:
     def __init__(self,
@@ -37,7 +38,7 @@ class ConfigurationManager:
         prepare_base_model_config = PrepareBaseModelConfig(
 
             root_dir = Path(config.root_dir),
-            base_model_path = Path(config.updated_base_model_path),
+            base_model_path = Path(config.base_model_path),
             updated_base_model_path = Path(config.updated_base_model_path),
             params_image_size = self.params.IMAGE_SIZE,
             params_learning_rate = self.params.LEARNING_RATE,
@@ -47,4 +48,20 @@ class ConfigurationManager:
         )
 
         return prepare_base_model_config
+
+
+    def get_prepare_callback_config(self):
+
+        config = self.config.prepare_callbacks
+        model_ckpt_dir = os.path.dirname(config.checkpoint_model_filepath)
+
+        create_directories([Path(model_ckpt_dir), Path(config.tensorboard_root_log_dir)])
+
+        prepare_callback_config = PrepareCallbackConfig(
+            root_dir=Path(config.root_dir),
+            tensorboard_root_log_dir=Path(config.tensorboard_root_log_dir),
+            checkpoint_model_filepath=Path(config.checkpoint_model_filepath)
+        )
+
+        return prepare_callback_config
 
